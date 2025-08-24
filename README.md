@@ -53,6 +53,6 @@ It combines a sleek UI with **mood tracking, tagging, lucid dream logging, and d
 ![Dreams](screenshots/dream.png)  
 
 **Theme**
-![Theme](screenshots/image.png)  
+![Theme](screenshots/image(7).png)  
 
 🚧 Note: This is a demo idea for future development and not yet a complete product.
