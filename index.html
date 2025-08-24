@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamWeaver | Futuristic Dream Journal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cosmic-bg" id="cosmicBg"></div>
+    <div class="notification" id="notification">
+        <i class="fas fa-check-circle success"></i>
+        <span>Dream saved successfully!</span>
+    </div>
+    
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+    
+    <div class="container">
+        <header>
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>DreamWeaver</h1>
+                    <p>Advanced dream journal & analyzer</p>
+                </div>
+            </div>
+            <nav>
+                <button><i class="fas fa-home"></i> Dashboard</button>
+                <button><i class="fas fa-chart-bar"></i> Insights</button>
+                <button><i class="fas fa-cog"></i> Settings</button>
+            </nav>
+        </header>
+        
+        <div class="dashboard">
+            <div class="main-content">
+                <div class="filter-panel" id="filterPanel">
+                    <div class="filter-header">
+                        <h3>Filter Dreams</h3>
+                        <button class="action-btn" id="closeFilter">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <label for="moodFilter">Mood</label>
+                            <select id="moodFilter">
+                                <option value="all">All Moods</option>
+                                <option value="1">Negative</option>
+                                <option value="2">Neutral</option>
+                                <option value="3">Positive</option>
+                                <option value="4">Exciting</option>
+                                <option value="5">Tiring</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="tagFilter">Tag</label>
+                            <select id="tagFilter">
+                                <option value="all">All Tags</option>
+                                <option value="flying">Flying</option>
+                                <option value="water">Water</option>
+                                <option value="childhood">Childhood</option>
+                                <option value="forest">Forest</option>
+                                <option value="future">Future</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="dateFilter">Date Range</label>
+                            <div class="date-picker">
+                                <input type="date" id="startDate">
+                                <input type="date" id="endDate">
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <label for="lucidFilter">Lucid Dream</label>
+                            <select id="lucidFilter">
+                                <option value="all">All Dreams</option>
+                                <option value="true">Lucid Only</option>
+                                <option value="false">Non-Lucid</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button class="btn" id="applyFilter">
+                        <i class="fas fa-filter"></i> Apply Filters
+                    </button>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-book"></i> Dream Journal</h2>
+                    </div>
+                    
+                    <form id="dreamForm">
+                        <div class="form-group">
+                            <label for="dreamTitle">Dream Title</label>
+                            <input type="text" id="dreamTitle" class="form-control" placeholder="What was your dream about?">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dreamContent">Dream Description</label>
+                            <textarea id="dreamContent" class="form-control" placeholder="Describe your dream in as much detail as possible..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="dreamTags">Tags (comma separated)</label>
+                            <input type="text" id="dreamTags" class="form-control" placeholder="e.g. flying, water, childhood">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Mood After Dream</label>
+                            <div class="mood-selector">
+                                <div class="mood-option" data-value="1">
+                                    <i class="fas fa-frown"></i>
+                                    <span>Negative</span>
+                                </div>
+                                <div class="mood-option" data-value="2">
+                                    <i class="fas fa-meh"></i>
+                                    <span>Neutral</span>
+                                </div>
+                                <div class="mood-option active" data-value="3">
+                                    <i class="fas fa-smile"></i>
+                                    <span>Positive</span>
+                                </div>
+                                <div class="mood-option" data-value="4">
+                                    <i class="fas fa-grin-stars"></i>
+                                    <span>Exciting</span>
+                                </div>
+                                <div class="mood-option" data-value="5">
+                                    <i class="fas fa-tired"></i>
+                                    <span>Tiring</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="lucidCheckbox"> Lucid Dream
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn" id="saveBtn">
+                            <i class="fas fa-save"></i> Save Dream
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-history"></i> Recent Dreams</h2>
+                        <button class="btn btn-outline" id="filterBtn">
+                            <i class="fas fa-filter"></i> Filter
+                        </button>
+                    </div>
+                    
+                    <div class="search-bar">
+                        <input type="text" id="searchInput" placeholder="Search dreams...">
+                        <button class="btn btn-outline" id="searchBtn">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="dream-list" id="dreamList">
+                        <!-- Dream entries will be added here by JavaScript -->
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-header">
+                        <h2><i class="fas fa-brain"></i> Dream Analysis</h2>
+                    </div>
+                    
+                    <div class="dream-analysis">
+                        <div class="analysis-header">
+                            <i class="fas fa-lightbulb"></i>
+                            <h3>Insights from your dreams</h3>
+                        </div>
+                        <div class="analysis-content" id="dreamAnalysis">
+                            <p>Start recording your dreams to receive personalized analysis and insights!</p>
+                            <p>Your dreams will be analyzed for common themes, symbols, and emotional patterns.</p>
+                        </div>
+                        <div class="keywords" id="dreamKeywords">
+                            <!-- Keywords will be added here by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="insights">
+                <h2><i class="fas fa-chart-line"></i> Dream Insights</h2>
+                
+                <div class="insight-card">
+                    <h3><i class="fas fa-cloud-moon"></i> Dream Patterns</h3>
+                    <div class="chart-container">
+                        <canvas id="moodChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <h3><i class="fas fa-tags"></i> Common Themes</h3>
+                    <div class="chart-container">
+                        <canvas id="themeChart"></canvas>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3 id="dreamCount">0</h3>
+                        <p>Dreams Recorded</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="avgMood">0.0</h3>
+                        <p>Avg. Mood Rating</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="lucidCount">0</h3>
+                        <p>Lucid Dreams</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3 id="recallRate">0%</h3>
+                        <p>Recall Rate</p>
+                    </div>
+                </div>
+                
+                <div class="insight-card">
+                    <h3><i class="fas fa-magic"></i> Personalized Insight</h3>
+                    <div class="insight-content">
+                        <p id="personalizedInsight">Start recording your dreams to receive personalized insights about your subconscious mind.</p>
+                        <p id="insightAdvice">Dream journaling can help improve self-awareness and problem-solving skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
