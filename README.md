@@ -7,13 +7,23 @@ It combines a sleek UI with **mood tracking, tagging, lucid dream logging, and d
 
 ## ✨ Features
 
-- 📝 Record dreams with **title, description, tags, and mood**  
-- 🔖 Add **custom tags** for better dream categorization  
-- 🌗 Track **lucid vs non-lucid dreams**  
-- 📊 Visualize dream patterns with **Chart.js insights**  
-- 🔍 Search and filter dreams by mood, date, or theme  
-- 🎨 Futuristic UI with light/dark theme toggle  
-- ⚡ Smooth notification system for dream saving  
+📝 Record dreams with title, description, tags, and mood
+
+🔖 Add custom tags for better dream categorization
+
+🌗 Track lucid vs non-lucid dreams
+
+📊 Visualize dream patterns with Chart.js insights
+
+🔍 Search and filter dreams by mood, date, or theme
+
+🎨 Futuristic UI with light/dark theme toggle
+
+⚡ Smooth notification system for dream saving
+
+✏️ Edit or delete dreams anytime
+
+🧠 Dream analysis & insights for personal growth
 
 ---
 
@@ -26,8 +36,6 @@ It combines a sleek UI with **mood tracking, tagging, lucid dream logging, and d
 ---
 
 ## 📸 Screenshots  
-
-> Add your app screenshots in a `/screenshots` folder inside this repo.  
 
 **Dashboard View**  
 ![Dashboard](screenshots/dash.png)  
@@ -45,14 +53,6 @@ It combines a sleek UI with **mood tracking, tagging, lucid dream logging, and d
 ![Dreams](screenshots/dream.png)  
 
 **Theme**
-![Theme](screenshots/image7.png)  
+![Theme](screenshots/image.png)  
 
-
-
----
-
-## 🚀 Getting Started
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/your-username/DreamWeaver.git
+🚧 Note: This is a demo idea for future development and not yet a complete product.
